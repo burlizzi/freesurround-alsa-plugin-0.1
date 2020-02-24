@@ -21,6 +21,11 @@ Post-Installation:
 
 Modify or create an .asoundrc file in your home to make your apps use the plugin
 
+pcm_type.freesurround {
+  lib "<PATH_TO>/libasound_module_pcm_freesurround.so"
+}
+
+
 # AC-3 encoding to SPDIF output (coaxial or optical)
 pcm.Filter_A52Encode {
    type a52
