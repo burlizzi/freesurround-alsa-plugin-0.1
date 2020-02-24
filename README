@@ -20,10 +20,10 @@ Post-Installation:
 ------------------
 
 Modify or create an .asoundrc file in your home to make your apps use the plugin
-
-pcm_type.freesurround {
-  lib "<PATH_TO>/libasound_module_pcm_freesurround.so"
-}
+# if you don't have root access or for whatever reason you can drop your plugin wherever you want in your home and reference it here
+#pcm_type.freesurround {
+#  lib "<PATH_TO>/libasound_module_pcm_freesurround.so"
+#}
 
 
 # AC-3 encoding to SPDIF output (coaxial or optical)
