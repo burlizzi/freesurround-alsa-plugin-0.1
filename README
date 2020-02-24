@@ -1,0 +1,47 @@
+FreeSurround Alsa Plugin, upmixes stero to surround 5.1 and decodes surround information
+V 0.1 (2009)
+
+Requirements:
+-------------
+ - fftw 
+ - alsa-plugins
+ - alsa-lib
+
+Installation:
+-------------
+
+type "make" to compile.
+
+type "make install" to install.
+
+http://www.micosphere.free.fr
+
+Post-Installation:
+------------------
+
+Modify or create an .asoundrc file in your home to make your apps use the plugin
+
+# AC-3 encoding to SPDIF output (coaxial or optical)
+pcm.Filter_A52Encode {
+   type a52
+   card 0
+}
+
+pcm.Filter_FreeSurround {
+   type freesurround
+   slave.pcm "Filter_A52Encode"  # SPDIF output
+  # slave.pcm "surround51"  # to use for analog output ?
+}
+
+pcm.upmixer {
+   type plug
+   slave.pcm "Filter_FreeSurround"
+}
+
+
+To make upmixer the default pcm device, add this to .asoundrc:
+
+pcm .!default {
+   type plug
+   slave.pcm "upmixer"
+}
